@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChessyCiv</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    overflow: hidden;
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  canvas#bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    image-rendering: pixelated;
+  }
+
+  .overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    user-select: none;
+  }
+
+  .title {
+    font-size: clamp(1rem, 4vw, 3rem);
+    color: #fff;
+    text-shadow:
+      0 0 10px #f0f,
+      0 0 20px #f0f,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    animation: titlePulse 2s ease-in-out infinite, hueShift 6s linear infinite;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.15em;
+  }
+
+  .coming-soon {
+    display: flex;
+    justify-content: center;
+    gap: 0.1em;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  .coming-soon span {
+    font-size: clamp(1.5rem, 6vw, 5rem);
+    display: inline-block;
+    animation:
+      letterBounce 0.6s ease-in-out infinite alternate,
+      letterColor 3s linear infinite,
+      glitch 4s steps(1) infinite;
+    text-shadow:
+      3px 3px 0 #000,
+      0 0 10px currentColor,
+      0 0 30px currentColor,
+      0 0 60px currentColor;
+    image-rendering: pixelated;
+  }
+
+  .scanlines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+  }
+
+  .vignette {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.7) 100%);
+  }
+
+  .pixel-border {
+    position: relative;
+    padding: 2rem 3rem;
+    border: 4px solid;
+    border-image: repeating-linear-gradient(
+      90deg, #f0f, #0ff, #ff0, #0f0, #f0f
+    ) 4;
+    animation: borderShift 2s linear infinite;
+    background: rgba(0, 0, 0, 0.6);
+    image-rendering: pixelated;
+  }
+
+  .subtitle {
+    font-size: clamp(0.4rem, 1.5vw, 0.8rem);
+    color: #0f0;
+    margin-top: 1.5rem;
+    animation: blink 1s steps(1) infinite, hueShift 4s linear infinite;
+    letter-spacing: 0.2em;
+  }
+
+  .chess-pieces {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @keyframes titlePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  @keyframes hueShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  @keyframes letterBounce {
+    0% { transform: translateY(0) scaleY(1); }
+    100% { transform: translateY(-15px) scaleY(1.1); }
+  }
+
+  @keyframes letterColor {
+    0%   { color: #ff00ff; }
+    16%  { color: #ff0000; }
+    33%  { color: #ffff00; }
+    50%  { color: #00ff00; }
+    66%  { color: #00ffff; }
+    83%  { color: #0000ff; }
+    100% { color: #ff00ff; }
+  }
+
+  @keyframes glitch {
+    0%   { transform: translateY(0); }
+    2%   { transform: translate(-3px, 2px) skewX(2deg); }
+    4%   { transform: translate(3px, -1px) skewX(-1deg); }
+    6%   { transform: translateY(0); }
+    50%  { transform: translateY(0); }
+    52%  { transform: translate(2px, 1px) skewX(-2deg); }
+    53%  { transform: translate(-1px, -2px) skewX(1deg); }
+    55%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes borderShift {
+    0% { border-image: repeating-linear-gradient(90deg, #f0f, #0ff, #ff0, #0f0, #f0f) 4; }
+    25% { border-image: repeating-linear-gradient(90deg, #0ff, #ff0, #0f0, #f0f, #0ff) 4; }
+    50% { border-image: repeating-linear-gradient(90deg, #ff0, #0f0, #f0f, #0ff, #ff0) 4; }
+    75% { border-image: repeating-linear-gradient(90deg, #0f0, #f0f, #0ff, #ff0, #0f0) 4; }
+    100% { border-image: repeating-linear-gradient(90deg, #f0f, #0ff, #ff0, #0f0, #f0f) 4; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="overlay">
+  <div class="pixel-border">
+    <div class="title">CHESSY CIV</div>
+    <div class="coming-soon" id="comingSoon"></div>
+    <div class="subtitle">PRESS START TO WAIT</div>
+  </div>
+</div>
+
+<div class="scanlines"></div>
+<div class="vignette"></div>
+<canvas class="chess-pieces" id="pieces"></canvas>
+
+<script>
+// Animated letter spans
+const text = "COMING SOON!";
+const container = document.getElementById('comingSoon');
+text.split('').forEach((char, i) => {
+  const span = document.createElement('span');
+  span.textContent = char === ' ' ? '\u00A0' : char;
+  span.style.animationDelay = `${i * 0.08}s, ${i * 0.2}s, ${i * 0.5}s`;
+  container.appendChild(span);
+});
+
+// Psychedelic pixel background
+const bgCanvas = document.getElementById('bg');
+const bgCtx = bgCanvas.getContext('2d');
+const PIXEL = 12;
+let cols, rows;
+
+function resizeBg() {
+  bgCanvas.width = Math.ceil(window.innerWidth / PIXEL);
+  bgCanvas.height = Math.ceil(window.innerHeight / PIXEL);
+  cols = bgCanvas.width;
+  rows = bgCanvas.height;
+}
+resizeBg();
+window.addEventListener('resize', resizeBg);
+
+function hslToRgb(h, s, l) {
+  h /= 360; s /= 100; l /= 100;
+  let r, g, b;
+  if (s === 0) { r = g = b = l; }
+  else {
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1; if (t > 1) t -= 1;
+      if (t < 1/6) return p + (q - p) * 6 * t;
+      if (t < 1/2) return q;
+      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    };
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+let t = 0;
+function drawBg() {
+  const imgData = bgCtx.createImageData(cols, rows);
+  const d = imgData.data;
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const i = (y * cols + x) * 4;
+      const wave1 = Math.sin(x * 0.15 + t * 0.02) * 50;
+      const wave2 = Math.cos(y * 0.12 + t * 0.015) * 50;
+      const wave3 = Math.sin((x + y) * 0.1 + t * 0.025) * 40;
+      const dist = Math.sqrt((x - cols/2)**2 + (y - rows/2)**2);
+      const spiral = Math.sin(dist * 0.2 - t * 0.03) * 60;
+      const hue = (wave1 + wave2 + wave3 + spiral + t * 0.8) % 360;
+      const lightness = 8 + Math.sin(dist * 0.15 - t * 0.02) * 6;
+      const [r, g, b] = hslToRgb((hue + 360) % 360, 100, lightness);
+      d[i] = r; d[i+1] = g; d[i+2] = b; d[i+3] = 255;
+    }
+  }
+  bgCtx.putImageData(imgData, 0, 0);
+  t++;
+  requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// Floating 8-bit chess pieces
+const pieceCanvas = document.getElementById('pieces');
+const pieceCtx = pieceCanvas.getContext('2d');
+
+function resizePieces() {
+  pieceCanvas.width = window.innerWidth;
+  pieceCanvas.height = window.innerHeight;
+}
+resizePieces();
+window.addEventListener('resize', resizePieces);
+
+const chessPiecePixels = {
+  rook: [
+    " X.X.X.X ",
+    " XXXXXXX ",
+    "  XXXXX  ",
+    "  XXXXX  ",
+    "  .XXX.  ",
+    "  .XXX.  ",
+    "  XXXXX  ",
+    " XXXXXXX ",
+    "XXXXXXXXX"
+  ],
+  pawn: [
+    "         ",
+    "   .X.   ",
+    "  .XXX.  ",
+    "   XXX   ",
+    "   .X.   ",
+    "  .XXX.  ",
+    "  XXXXX  ",
+    " XXXXXXX ",
+    "XXXXXXXXX"
+  ],
+  knight: [
+    "   .XX.  ",
+    "  .XXXX. ",
+    " .XXXXX. ",
+    " XXXXXX  ",
+    "  .XXXX  ",
+    "   XXX.  ",
+    "  XXXXX  ",
+    " XXXXXXX ",
+    "XXXXXXXXX"
+  ]
+};
+
+const pieceNames = Object.keys(chessPiecePixels);
+const floatingPieces = [];
+
+for (let i = 0; i < 18; i++) {
+  floatingPieces.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 1.2,
+    vy: -Math.random() * 1.5 - 0.3,
+    scale: Math.random() * 3 + 2,
+    hue: Math.random() * 360,
+    hueSpeed: Math.random() * 2 + 0.5,
+    piece: pieceNames[Math.floor(Math.random() * pieceNames.length)],
+    alpha: Math.random() * 0.4 + 0.15,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: Math.random() * 0.03 + 0.01
+  });
+}
+
+function drawPiece(piece, x, y, scale, hue, alpha) {
+  const pixels = chessPiecePixels[piece];
+  pieceCtx.globalAlpha = alpha;
+  for (let row = 0; row < pixels.length; row++) {
+    for (let col = 0; col < pixels[row].length; col++) {
+      if (pixels[row][col] === 'X') {
+        pieceCtx.fillStyle = `hsl(${hue}, 100%, 60%)`;
+        pieceCtx.fillRect(
+          x + col * scale,
+          y + row * scale,
+          scale, scale
+        );
+      } else if (pixels[row][col] === '.') {
+        pieceCtx.fillStyle = `hsl(${hue + 60}, 100%, 30%)`;
+        pieceCtx.fillRect(
+          x + col * scale,
+          y + row * scale,
+          scale, scale
+        );
+      }
+    }
+  }
+  pieceCtx.globalAlpha = 1;
+}
+
+function animatePieces() {
+  pieceCtx.clearRect(0, 0, pieceCanvas.width, pieceCanvas.height);
+  for (const p of floatingPieces) {
+    p.wobble += p.wobbleSpeed;
+    p.x += p.vx + Math.sin(p.wobble) * 0.5;
+    p.y += p.vy;
+    p.hue = (p.hue + p.hueSpeed) % 360;
+
+    if (p.y < -100) {
+      p.y = pieceCanvas.height + 50;
+      p.x = Math.random() * pieceCanvas.width;
+    }
+    if (p.x < -100) p.x = pieceCanvas.width + 50;
+    if (p.x > pieceCanvas.width + 100) p.x = -50;
+
+    drawPiece(p.piece, p.x, p.y, p.scale, p.hue, p.alpha);
+  }
+  requestAnimationFrame(animatePieces);
+}
+animatePieces();
+</script>
+
+</body>
+</html>
