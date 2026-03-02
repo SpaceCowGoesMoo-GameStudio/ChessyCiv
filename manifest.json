@@ -1,0 +1,34 @@
+{
+  "name": "ChessyCiv",
+  "short_name": "ChessyCiv",
+  "description": "Free turn-based strategy browser game. Found cities, command warriors, conquer the system.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#00d4ff",
+  "background_color": "#1a1a2e",
+  "categories": ["games", "strategy"],
+  "icons": [
+    {
+      "src": "pictures/icon_16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "pictures/icon_32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "pictures/icon_48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "pictures/icon_62.png",
+      "sizes": "62x62",
+      "type": "image/png"
+    }
+  ]
+}

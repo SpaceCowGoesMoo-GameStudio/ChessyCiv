@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /civchess-trainer/
+Disallow: /level-editor/
+Disallow: /test-arena/
+Disallow: /tools/
+Disallow: /draws-export/
+
+Sitemap: https://chessyciv.com/sitemap.xml

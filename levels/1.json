@@ -1,0 +1,56 @@
+{
+    "format": "civchess-level-v1",
+    "metadata": {
+        "name": "Deletion at Dawn",
+        "description": "A single process wakes up. The system marks it for deletion. One chance to strike first.",
+        "author": "SpaceCowGoesMoo",
+        "created": "2026-02-26T00:00:00.000Z"
+    },
+    "players": [
+        {
+            "id": 0,
+            "name": "Cyan",
+            "color": { "name": "Cyan", "css": "#00ffff", "hex": 65535 },
+            "isAI": false,
+            "aiDifficulty": null,
+            "techScore": 0,
+            "relations": { "1": "war" }
+        },
+        {
+            "id": 1,
+            "name": "Red",
+            "color": { "name": "Red", "css": "#e6001b", "hex": 15073307 },
+            "isAI": true,
+            "aiDifficulty": "easy",
+            "techScore": 0,
+            "relations": { "0": "war" }
+        }
+    ],
+    "board": {
+        "pieces": [
+            { "type": "warrior", "ownerId": 0, "row": 9, "col": 4, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 4, "col": 5, "hp": 1, "maxHp": 1 }
+        ],
+        "tileOwnership": [
+            [null, null, null, null, null, null, null, null, null, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null,    1,    1,    1,    1,    1,    1,    1,    1, null],
+            [null, null, null, null, null, null, null, null, null, null]
+        ]
+    },
+    "winConditions": {
+        "mode": "or",
+        "conditions": [
+            { "type": "destroyAllWarriors" }
+        ]
+    },
+    "diplomacyLocked": true,
+    "blockedProductions": ["SETTLER"],
+    "startingPlayer": 0
+}

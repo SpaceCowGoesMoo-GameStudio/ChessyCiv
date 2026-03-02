@@ -1,0 +1,38 @@
+/* ============================================
+   RETRO MODE — Monochrome Green Phosphor CRT
+   ============================================
+   Activated via system control command "RETRO"
+
+   Applies a CSS filter chain on <body> that converts
+   the entire page to monochrome green, simulating a
+   classic green phosphor CRT terminal display.
+
+   Filter pipeline:
+   1. grayscale(1)    — reduce all colors to luminance
+   2. brightness(1.1) — compensate for sepia/saturate dimming
+   3. sepia(1)        — apply warm base tone for hue-rotate
+   4. hue-rotate(75deg) — shift sepia yellow → phosphor green
+   5. saturate(5)     — boost green intensity
+   6. contrast(1.05)  — subtle contrast lift for CRT crispness
+*/
+
+body.retro-mode {
+    filter: grayscale(1) brightness(1.1) sepia(1) hue-rotate(75deg) saturate(5) contrast(1.05) !important;
+    background-color: #000000 !important;
+}
+
+/* Prevent double-filtering on canvas elements that may
+   have their own filter (e.g. from other CSS rules) */
+body.retro-mode canvas {
+    filter: none !important;
+}
+
+/* CRT chromatic aberration: neutralize the colored shadows
+   since monochrome CRTs have no color fringing */
+body.retro-mode #crt-overlay::after {
+    box-shadow:
+        inset 2px 0 8px rgba(255, 255, 255, 0.04),
+        inset -2px 0 8px rgba(255, 255, 255, 0.04),
+        inset 0 2px 8px rgba(255, 255, 255, 0.03),
+        inset 0 -2px 8px rgba(255, 255, 255, 0.03) !important;
+}

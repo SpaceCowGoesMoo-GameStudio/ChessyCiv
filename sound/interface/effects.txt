@@ -1,0 +1,27 @@
+---EARLY---
+setcpm(120)
+
+$: arrange(
+  [3, silence],
+  [1, note("c3!2").sound("sawtooth, sine").lpf(saw.range(100, 700)).room(.5)]
+)
+
+
+$: arrange(
+  [3, silence],
+  [1, note("[60 68]").sound("piano").lpf(400).room(.5).gain(.2)]
+)
+
+---LATE---
+
+setcpm(120)
+
+$: arrange(
+  [6, silence],
+  [1, note("c3!2").sound("sawtooth, sine").lpf(saw.range(1000, 4000)).room(.5)]
+)
+
+
+$: arrange(
+  [6, silence],
+  [1, note("[60 68 67]").sound("piano").lpf(400).room(.5).gain(.4)]

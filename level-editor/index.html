@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivChess Level Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>CIVCHESS LEVEL EDITOR</h1>
+        <div class="header-buttons">
+            <button class="btn" onclick="editor.newLevel()">New</button>
+            <button class="btn" onclick="editor.importLevel()">Import</button>
+            <button class="btn btn-green" onclick="editor.exportLevel()">Export</button>
+            <button class="btn btn-magenta" onclick="editor.startPlaytest()">Playtest</button>
+        </div>
+    </div>
+
+    <!-- Main 3-column layout -->
+    <div class="editor-layout">
+        <!-- Left Sidebar -->
+        <div class="sidebar left-sidebar">
+            <div class="panel">
+                <div class="panel-title">TOOLS</div>
+                <div class="tool-grid">
+                    <button class="tool-btn active" data-tool="city" title="City (1)">
+                        <span class="tool-icon">C</span><span class="tool-label">City</span>
+                    </button>
+                    <button class="tool-btn" data-tool="warrior" title="Warrior (2)">
+                        <span class="tool-icon">W</span><span class="tool-label">Warrior</span>
+                    </button>
+                    <button class="tool-btn" data-tool="settler" title="Settler (3)">
+                        <span class="tool-icon">S</span><span class="tool-label">Settler</span>
+                    </button>
+                    <button class="tool-btn" data-tool="territory" title="Territory (4)">
+                        <span class="tool-icon">T</span><span class="tool-label">Territory</span>
+                    </button>
+                    <button class="tool-btn" data-tool="erase" title="Erase (5)">
+                        <span class="tool-icon">X</span><span class="tool-label">Erase</span>
+                    </button>
+                    <button class="tool-btn" data-tool="select" title="Select (6)">
+                        <span class="tool-icon">?</span><span class="tool-label">Select</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">PLAYER</div>
+                <div id="playerList"></div>
+                <button class="btn btn-sm" id="addPlayerBtn" onclick="editor.addPlayer()">+ Add Player</button>
+            </div>
+
+            <div class="panel" id="pieceInfoPanel" style="display:none">
+                <div class="panel-title">PIECE INFO</div>
+                <div id="pieceInfoContent"></div>
+            </div>
+        </div>
+
+        <!-- Board Canvas -->
+        <div class="board-container">
+            <canvas id="editorCanvas" width="600" height="600"></canvas>
+            <div class="status-bar">
+                <span id="tileInfo">Hover over a tile</span>
+                <span id="pieceCount">Pieces: 0</span>
+                <span class="status-actions">
+                    <button class="btn btn-sm" onclick="editor.undo()" title="Ctrl+Z">Undo</button>
+                    <button class="btn btn-sm" onclick="editor.redo()" title="Ctrl+Shift+Z">Redo</button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar right-sidebar">
+            <div class="panel">
+                <div class="panel-title">METADATA</div>
+                <label class="field-label">Name</label>
+                <input type="text" id="levelName" class="field-input" placeholder="Untitled Level">
+                <label class="field-label">Description</label>
+                <textarea id="levelDesc" class="field-input field-textarea" placeholder="Level description..."></textarea>
+                <label class="field-label">Author</label>
+                <input type="text" id="levelAuthor" class="field-input" placeholder="Anonymous">
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">WIN CONDITIONS</div>
+                <div class="mode-toggle">
+                    <button class="btn btn-sm active" id="modeAnd" onclick="editor.setConditionMode('and')">AND</button>
+                    <button class="btn btn-sm" id="modeOr" onclick="editor.setConditionMode('or')">OR</button>
+                </div>
+                <div id="conditionList"></div>
+                <button class="btn btn-sm" onclick="editor.addCondition()">+ Add Condition</button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">DIPLOMACY</div>
+                <div id="diplomacyList"></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">STARTING PLAYER</div>
+                <select id="startingPlayer" class="field-input" onchange="editor.setStartingPlayer()">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playtest Modal Overlay -->
+    <div id="playtestOverlay" class="playtest-overlay" style="display:none">
+        <div class="playtest-header">
+            <span class="playtest-title">PLAYTEST</span>
+            <div class="playtest-controls">
+                <button class="btn btn-sm" id="ptPlay" onclick="editor.ptTogglePlay()">Play</button>
+                <button class="btn btn-sm" onclick="editor.ptStep()">Step</button>
+                <button class="btn btn-sm btn-green" id="ptEndTurn" onclick="editor.ptEndHumanTurn()" style="display:none">End Turn</button>
+                <label class="speed-label">Speed:
+                    <input type="range" id="ptSpeed" min="50" max="1000" value="200" step="50">
+                </label>
+                <span id="ptInfo" class="playtest-info">Ready</span>
+                <button class="btn btn-sm btn-magenta" onclick="editor.stopPlaytest()">Close</button>
+            </div>
+        </div>
+        <div class="playtest-body">
+            <canvas id="playtestCanvas" width="600" height="600"></canvas>
+            <div class="playtest-side" id="ptSidePanel"></div>
+        </div>
+    </div>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="editor.handleImportFile(event)">
+
+    <!-- GameHistory stub (must be before game scripts) -->
+    <script>
+        if (typeof GameHistory === 'undefined') {
+            window.GameHistory = class {
+                constructor() { this.gameId = 'editor_stub'; this.metadata = { startTime: 0, endTime: null, playerCount: 0, players: [], winner: null }; }
+                static async getDB() { return null; }
+                static migrateFromLocalStorage() {}
+                generateGameId() { return 'ed_' + Date.now(); }
+                initGame() {}
+                captureSnapshot() {}
+                updatePlayerPersonality() {}
+                forceSave() {}
+                endGame() {}
+            };
+        }
+    </script>
+
+    <!-- Game Engine scripts (sequential load order) -->
+    <script src="../js/constants.js"></script>
+    <script src="../js/Game-Engine/GameEngine.js"></script>
+    <script src="../js/Game-Engine/setup.js"></script>
+    <script src="../js/Game-Engine/movement.js"></script>
+    <script src="../js/Game-Engine/combat.js"></script>
+    <script src="../js/Game-Engine/production.js"></script>
+    <script src="../js/Game-Engine/territory.js"></script>
+    <script src="../js/Game-Engine/diplomacy.js"></script>
+    <script src="../js/Game-Engine/settlers.js"></script>
+    <script src="../js/Game-Engine/turns.js"></script>
+    <script src="../js/Game-Engine/ai-support.js"></script>
+    <script src="../js/Game-Engine/persistence.js"></script>
+    <script src="../js/Game-Engine/ml-state-encoder.js"></script>
+
+    <!-- Dev Controls (DevExport first, then DevGame base, then extensions) -->
+    <script src="../js/Dev-Controls/DevExport.js"></script>
+    <script src="../js/Dev-Controls/DevGame.js"></script>
+    <script src="../js/Dev-Controls/state.js"></script>
+    <script src="../js/Dev-Controls/pieces.js"></script>
+    <script src="../js/Dev-Controls/players.js"></script>
+    <script src="../js/Dev-Controls/actions.js"></script>
+    <script src="../js/Dev-Controls/ai-control.js"></script>
+    <script src="../js/Dev-Controls/game-control.js"></script>
+    <script src="../js/Dev-Controls/events.js"></script>
+    <script src="../js/Dev-Controls/ml-bridge.js"></script>
+    <script src="../js/Dev-Controls/DevManager.js"></script>
+
+    <!-- AI scripts (for playtest) -->
+    <script src="../js/AI/constants.js"></script>
+    <script src="../js/AI/CivChessAI.js"></script>
+    <script src="../js/AI/AIManager.js"></script>
+    <script src="../js/AI/analysis.js"></script>
+    <script src="../js/AI/tracking.js"></script>
+    <script src="../js/AI/goals.js"></script>
+    <script src="../js/AI/diplomacy.js"></script>
+    <script src="../js/AI/production.js"></script>
+    <script src="../js/AI/objectives.js"></script>
+    <script src="../js/AI/pathfinding.js"></script>
+    <script src="../js/AI/positioning.js"></script>
+    <script src="../js/AI/movement.js"></script>
+    <script src="../js/AI/settlers.js"></script>
+    <!-- Editor -->
+    <script src="editor.js"></script>
+</body>
+</html>

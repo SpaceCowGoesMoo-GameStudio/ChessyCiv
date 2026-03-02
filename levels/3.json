@@ -1,0 +1,80 @@
+{
+    "format": "civchess-level-v1",
+    "metadata": {
+        "name": "War",
+        "description": "Open insurgency. Cells have infiltrated deep behind system lines. Red controls the system but the rebellion is everywhere. No more hiding.",
+        "author": "SpaceCowGoesMoo",
+        "created": "2026-02-26T00:00:00.000Z"
+    },
+    "players": [
+        {
+            "id": 0,
+            "name": "Cyan",
+            "color": { "name": "Cyan", "css": "#00ffff", "hex": 65535 },
+            "isAI": false,
+            "aiDifficulty": null,
+            "techScore": 0,
+            "relations": { "1": "war" }
+        },
+        {
+            "id": 1,
+            "name": "Red",
+            "color": { "name": "Red", "css": "#e6001b", "hex": 15073307 },
+            "isAI": true,
+            "aiDifficulty": "medium",
+            "techScore": 0,
+            "relations": { "0": "war" }
+        }
+    ],
+    "board": {
+        "pieces": [
+            { "type": "warrior", "ownerId": 0, "row": 0, "col": 1, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 1, "col": 6, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 2, "col": 4, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 3, "col": 9, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 4, "col": 0, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 5, "col": 3, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 6, "col": 6, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 7, "col": 2, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 7, "col": 8, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 8, "col": 7, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 0, "row": 9, "col": 7, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 0, "col": 5, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 0, "col": 9, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 1, "col": 1, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 2, "col": 5, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 3, "col": 1, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 3, "col": 4, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 4, "col": 6, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 5, "col": 4, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 6, "col": 2, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 6, "col": 8, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 7, "col": 5, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 8, "col": 3, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 8, "col": 9, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 9, "col": 1, "hp": 1, "maxHp": 1 },
+            { "type": "warrior", "ownerId": 1, "row": 9, "col": 4, "hp": 1, "maxHp": 1 }
+        ],
+        "tileOwnership": [
+            [   1,    0,    1,    1,    1,    1,    1,    0,    1,    1],
+            [   1,    1,    0,    1,    1,    1,    0,    1,    1,    1],
+            [   0,    1,    1,    1,    0,    1,    1,    1,    0,    1],
+            [   1,    1,    0,    1,    1,    1,    1,    0,    1,    0],
+            [   0,    1,    1,    0,    1,    1,    1,    1,    1,    1],
+            [   1,    0,    1,    0,    1,    1,    0,    1,    1,    1],
+            [   1,    1,    1,    1,    1,    1,    0,    1,    1,    0],
+            [   0,    1,    0,    1,    1,    1,    1,    1,    0,    1],
+            [   1,    1,    1,    1,    0,    1,    1,    0,    1,    1],
+            [   1,    0,    1,    1,    1,    1,    1,    0,    1,    0]
+        ]
+    },
+    "winConditions": {
+        "mode": "or",
+        "conditions": [
+            { "type": "destroyAllWarriors" }
+        ]
+    },
+    "diplomacyLocked": true,
+    "blockedProductions": ["SETTLER"],
+    "startingPlayer": 0
+}

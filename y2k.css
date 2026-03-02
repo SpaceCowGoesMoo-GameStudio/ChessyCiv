@@ -1,0 +1,647 @@
+/* ============================================
+   Y2K MODE — Hot Pink Internet Aesthetic
+   ============================================
+   Activated via system control command "Y2K"
+
+   Transforms the neon-terminal cyberpunk look into a
+   hot pink Y2K internet aesthetic inspired by Juicy
+   Couture, Hello Kitty, and early-2000s web culture.
+
+   All rules scoped under body.y2k-mode with !important
+   to override inline styles and base stylesheet.
+*/
+
+/* ---- Body & global ---- */
+body.y2k-mode {
+    background-color: #FFB6C1 !important;
+    text-shadow: 0 0 2px rgba(255, 20, 147, 0.15) !important;
+}
+
+/* ---- Header ---- */
+body.y2k-mode #game-header {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+    border-bottom: 2px solid #FF1493 !important;
+    box-shadow: 0 2px 20px rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .header-btn,
+body.y2k-mode .header-link-btn {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+@media (hover: hover) {
+    body.y2k-mode .header-btn:hover,
+    body.y2k-mode .header-link-btn:hover {
+        background: rgba(255, 20, 147, 0.2) !important;
+        box-shadow: 0 0 15px rgba(255, 20, 147, 0.5) !important;
+        text-shadow: 0 0 10px #FF1493 !important;
+    }
+}
+
+body.y2k-mode .header-btn:active,
+body.y2k-mode .header-link-btn:active {
+    background: rgba(255, 20, 147, 0.4) !important;
+}
+
+/* ---- Footer ---- */
+body.y2k-mode.game-mode #game-footer {
+    background: linear-gradient(0deg, #3D0F1C 0%, #4A1225 100%) !important;
+    border-top: 2px solid #FF1493 !important;
+    box-shadow: 0 -2px 20px rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .footer-link-btn {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .footer-copyright {
+    color: #C7819B !important;
+}
+
+body.y2k-mode .footer-copyright a {
+    color: #FF69B4 !important;
+}
+
+/* ---- Game container ---- */
+body.y2k-mode #game-container {
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.3) !important;
+}
+
+/* ---- Menu scene container ---- */
+body.y2k-mode #menu-scene {
+    background-color: #FFB6C1 !important;
+}
+
+/* ---- Game scene container ---- */
+body.y2k-mode #game-scene-container,
+body.y2k-mode #game-scene {
+    background-color: #FFB6C1 !important;
+}
+
+/* ---- Options panel ---- */
+body.y2k-mode #options-panel {
+    background: #3D0F1C !important;
+    border-left-color: #FF1493 !important;
+    box-shadow: -4px 0 0 #C71585 !important;
+}
+
+body.y2k-mode .options-header {
+    border-bottom-color: rgba(255, 20, 147, 0.27) !important;
+}
+
+body.y2k-mode .options-title {
+    color: #FF1493 !important;
+    text-shadow: 0 0 10px #FF1493 !important;
+}
+
+body.y2k-mode .close-btn {
+    color: #FF1493 !important;
+}
+
+@media (hover: hover) {
+    body.y2k-mode .close-btn:hover {
+        color: #C71585 !important;
+        text-shadow: 0 0 10px #C71585 !important;
+    }
+}
+
+body.y2k-mode .option-label {
+    color: rgba(255, 105, 180, 0.7) !important;
+    text-shadow: 0 0 6px rgba(255, 20, 147, 0.27) !important;
+}
+
+body.y2k-mode .option-group {
+    border-bottom-color: rgba(255, 20, 147, 0.2) !important;
+}
+
+body.y2k-mode .option-input {
+    background: #3D0F1C !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .option-input:focus {
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .option-slider {
+    background: #3D0F1C !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+}
+
+body.y2k-mode .option-slider::-webkit-slider-thumb {
+    background: #FF1493 !important;
+    box-shadow: 0 0 10px #FF1493 !important;
+}
+
+body.y2k-mode .option-slider::-moz-range-thumb {
+    background: #FF1493 !important;
+    box-shadow: 0 0 10px #FF1493 !important;
+}
+
+body.y2k-mode .slider-value {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .dev-mode-container span {
+    color: #FFD1DC !important;
+}
+
+/* ---- Toggle switches ---- */
+body.y2k-mode .toggle-slider {
+    background: #3D0F1C !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+}
+
+body.y2k-mode .toggle-slider:before {
+    background: #C7819B !important;
+}
+
+body.y2k-mode input:checked + .toggle-slider {
+    background: rgba(255, 105, 180, 0.2) !important;
+    border-color: #FF69B4 !important;
+}
+
+body.y2k-mode input:checked + .toggle-slider:before {
+    background: #FF69B4 !important;
+    box-shadow: 0 0 10px #FF69B4 !important;
+}
+
+/* ---- System control input/button ---- */
+body.y2k-mode #opt-system-input {
+    background: #3D0F1C !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode #btn-system-submit {
+    background: #3D0F1C !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+    color: #FF1493 !important;
+    text-shadow: 0 0 6px rgba(255, 20, 147, 0.27) !important;
+}
+
+@media (hover: hover) {
+    body.y2k-mode #btn-system-submit:hover {
+        background: rgba(255, 20, 147, 0.13) !important;
+        border-color: #FF1493 !important;
+        text-shadow: 0 0 10px #FF1493 !important;
+    }
+}
+
+/* ---- Piece circles ---- */
+body.y2k-mode .piece-circle {
+    background: rgba(61, 15, 28, 0.95) !important;
+}
+
+/* ============================================
+   UI PANEL (in-game side/bottom panel)
+   ============================================ */
+body.y2k-mode .game-ui-panel {
+    background: #3D0F1C !important;
+    border-color: #FF1493 !important;
+}
+
+body.y2k-mode .game-ui-panel * {
+    border-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .ui-panel-title {
+    color: #FF1493 !important;
+    text-shadow: 0 0 6px rgba(255, 20, 147, 0.4) !important;
+}
+
+body.y2k-mode .ui-panel-label {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .ui-panel-value {
+    color: #FFD1DC !important;
+}
+
+body.y2k-mode .ui-btn {
+    background: #4A1225 !important;
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+@media (hover: hover) {
+    body.y2k-mode .ui-btn:hover {
+        background: rgba(255, 20, 147, 0.2) !important;
+        box-shadow: 0 0 10px rgba(255, 20, 147, 0.3) !important;
+    }
+}
+
+/* ============================================
+   POPUP OVERLAYS (players, production, relations)
+   ============================================ */
+body.y2k-mode .popup-overlay {
+    background: rgba(61, 15, 28, 0.97) !important;
+    border-color: #FF1493 !important;
+}
+
+body.y2k-mode .popup-title {
+    color: #FF1493 !important;
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.5) !important;
+}
+
+body.y2k-mode .popup-close-btn {
+    color: #FF1493 !important;
+}
+
+body.y2k-mode .popup-row {
+    border-bottom-color: rgba(255, 20, 147, 0.15) !important;
+}
+
+body.y2k-mode .popup-label {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .popup-btn {
+    background: #4A1225 !important;
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+/* ============================================
+   ACHIEVEMENTS PANEL OVERLAY (full-screen)
+   ============================================ */
+body.y2k-mode #achievements-panel-overlay {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+}
+
+body.y2k-mode #achievements-panel-overlay .achievements-header,
+body.y2k-mode #campaign-panel-overlay .achievements-header {
+    background: #3D0F1C !important;
+    border-bottom-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .achievements-title {
+    color: #FF1493 !important;
+    text-shadow: 0 0 0.6em rgba(255, 20, 147, 0.5) !important;
+}
+
+body.y2k-mode .achievements-back-btn {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .achievements-progress {
+    color: rgba(255, 182, 193, 0.7) !important;
+}
+
+/* Container borders (both achievements and campaign) */
+body.y2k-mode #achievements-panel-overlay > div:nth-child(2),
+body.y2k-mode #campaign-panel-overlay > div:nth-child(2) {
+    border-color: #FF1493 !important;
+    box-shadow: inset 0 0 0 0.125em #C71585, 0 0 0.75em rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode #achievements-panel-overlay > div:nth-child(2) > div:first-child,
+body.y2k-mode #campaign-panel-overlay > div:nth-child(2) > div:first-child {
+    border-color: #8B1A4A !important;
+}
+
+/* Corner decorations */
+body.y2k-mode #achievements-panel-overlay > div:nth-child(2) > div[style*="background:#00d4ff"],
+body.y2k-mode #campaign-panel-overlay > div:nth-child(2) > div[style*="background:#00d4ff"] {
+    background: #FF1493 !important;
+}
+
+/* ---- Achievement cards ---- */
+body.y2k-mode .achv-card-unobtained {
+    background: #4A1225 !important;
+    border-color: rgba(255, 20, 147, 0.25) !important;
+}
+
+body.y2k-mode .achv-card-unobtained .achv-badge {
+    color: #C7819B !important;
+}
+
+body.y2k-mode .achv-card-unobtained .achv-name {
+    color: #C7819B !important;
+}
+
+body.y2k-mode .achv-card-unobtained .achv-desc {
+    color: #9A6078 !important;
+}
+
+body.y2k-mode .achv-card-obtained {
+    background: linear-gradient(180deg, #4A1225 0%, #3D0F1C 100%) !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 0.75em rgba(255, 20, 147, 0.3), inset 0 0 1.25em rgba(255, 20, 147, 0.05) !important;
+}
+
+body.y2k-mode .achv-card-obtained .achv-badge {
+    color: #FF1493 !important;
+    text-shadow: 0 0 0.375em rgba(255, 20, 147, 0.5) !important;
+}
+
+body.y2k-mode .achv-card-obtained .achv-name {
+    color: #FF1493 !important;
+    text-shadow: 0 0 0.5em rgba(255, 20, 147, 0.4) !important;
+}
+
+body.y2k-mode .achv-card-obtained .achv-desc {
+    color: rgba(255, 209, 220, 0.85) !important;
+}
+
+body.y2k-mode .achv-card-hidden {
+    border-color: #8B1A4A !important;
+}
+
+/* ============================================
+   CAMPAIGN PANEL OVERLAY (full-screen)
+   ============================================ */
+body.y2k-mode #campaign-panel-overlay {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+}
+
+/* ---- Campaign cards ---- */
+body.y2k-mode .campaign-card-completed {
+    background: linear-gradient(180deg, #4A1225 0%, #3D0F1C 100%) !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 0.75em rgba(255, 20, 147, 0.3), inset 0 0 1.25em rgba(255, 20, 147, 0.05) !important;
+}
+
+body.y2k-mode .campaign-card-unlocked {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+    border-color: #FF69B4 !important;
+    box-shadow: 0 0 0.5em rgba(255, 105, 180, 0.2) !important;
+}
+
+body.y2k-mode .campaign-card-locked {
+    background: #4A1225 !important;
+    border-color: #8B1A4A !important;
+}
+
+body.y2k-mode .campaign-badge {
+    color: #FF1493 !important;
+    text-shadow: 0 0 0.375em rgba(255, 20, 147, 0.5) !important;
+}
+
+body.y2k-mode .campaign-name {
+    color: #FF1493 !important;
+    text-shadow: 0 0 0.5em rgba(255, 20, 147, 0.4) !important;
+}
+
+body.y2k-mode .campaign-num {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .campaign-desc {
+    color: rgba(255, 209, 220, 0.85) !important;
+}
+
+/* ============================================
+   HOW TO PLAY OVERLAY (full-screen)
+   ============================================ */
+body.y2k-mode #how-to-play-overlay {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+}
+
+/* Header and footer bars */
+body.y2k-mode #how-to-play-overlay > div:first-child {
+    background: #3D0F1C !important;
+    border-bottom-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+/* Navigation buttons */
+body.y2k-mode .htp-nav-btn {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+@media (hover: hover) {
+    body.y2k-mode .htp-nav-btn:hover {
+        background: rgba(255, 20, 147, 0.2) !important;
+        box-shadow: 0 0 15px rgba(255, 20, 147, 0.5) !important;
+    }
+}
+
+/* Page indicator dots */
+body.y2k-mode #how-to-play-overlay div[style*="border-radius:50%"] {
+    border-color: #FF1493 !important;
+}
+
+/* Footer bar (mobile) */
+body.y2k-mode #how-to-play-overlay > div:last-child:not(:first-child) {
+    background: #3D0F1C !important;
+    border-top-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+/* Content area — override all text colors inside how-to-play */
+body.y2k-mode #how-to-play-overlay div[style*="color:#00d4ff"],
+body.y2k-mode #how-to-play-overlay div[style*="color: #00d4ff"] {
+    color: #FF1493 !important;
+}
+
+body.y2k-mode #how-to-play-overlay div[style*="color:#88ccff"],
+body.y2k-mode #how-to-play-overlay div[style*="color: #88ccff"] {
+    color: #FFD1DC !important;
+}
+
+body.y2k-mode #how-to-play-overlay div[style*="color:#00ff88"],
+body.y2k-mode #how-to-play-overlay div[style*="color: #00ff88"] {
+    color: #FF69B4 !important;
+}
+
+/* Content item backgrounds */
+body.y2k-mode #how-to-play-overlay div[style*="background:rgba(10,10,20"] {
+    background: rgba(61, 15, 28, 0.6) !important;
+    border-color: rgba(255, 20, 147, 0.15) !important;
+}
+
+body.y2k-mode #how-to-play-overlay div[style*="background:#1a1a3a"] {
+    background: #4A1225 !important;
+}
+
+/* Production header bars */
+body.y2k-mode #how-to-play-overlay div[style*="background:#00ff88"] {
+    background: #FF1493 !important;
+    border-bottom-color: #FF1493 !important;
+}
+
+/* Piece circle bg inside how-to-play canvas */
+body.y2k-mode #how-to-play-overlay div[style*="background:#0a0a14"] {
+    background: #3D0F1C !important;
+}
+
+/* Divider line */
+body.y2k-mode #how-to-play-overlay div[style*="background:linear-gradient(90deg,transparent,#00d4ff,transparent)"] {
+    background: linear-gradient(90deg, transparent, #FF1493, transparent) !important;
+}
+
+/* Diplomacy buttons inside how-to-play */
+body.y2k-mode #how-to-play-overlay button[style*="border:1px solid #00d4ff"] {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+    background: #3D0F1C !important;
+}
+
+/* ============================================
+   HELP PANEL OVERLAY (Get Help)
+   ============================================ */
+body.y2k-mode #help-panel-overlay {
+    background: linear-gradient(180deg, #3D0F1C 0%, #4A1225 100%) !important;
+}
+
+body.y2k-mode #help-panel-overlay > div:first-child {
+    background: #3D0F1C !important;
+    border-bottom-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode #help-panel-overlay div[style*="color:#00d4ff"],
+body.y2k-mode #help-panel-overlay div[style*="color: #00d4ff"] {
+    color: #FF1493 !important;
+}
+
+body.y2k-mode #help-panel-overlay div[style*="color:#88ccff"],
+body.y2k-mode #help-panel-overlay div[style*="color: #88ccff"] {
+    color: #FFD1DC !important;
+}
+
+body.y2k-mode #help-panel-overlay div[style*="background: #0a0a14"],
+body.y2k-mode #help-panel-overlay div[style*="background:#0a0a14"] {
+    background: #3D0F1C !important;
+}
+
+body.y2k-mode #help-panel-overlay button[style*="border:1px solid #00d4ff"],
+body.y2k-mode #help-panel-overlay button[style*="border: 1px solid #00d4ff"],
+body.y2k-mode #help-panel-overlay button[style*="border:2px solid #00d4ff"],
+body.y2k-mode #help-panel-overlay button[style*="border: 2px solid #00d4ff"] {
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+/* ============================================
+   CRT OVERLAY PINK TINT
+   ============================================ */
+body.y2k-mode #crt-overlay::after {
+    box-shadow:
+        inset 2px 0 8px rgba(255, 20, 147, 0.04),
+        inset -2px 0 8px rgba(255, 20, 147, 0.04),
+        inset 0 2px 8px rgba(255, 105, 180, 0.03),
+        inset 0 -2px 8px rgba(255, 105, 180, 0.03) !important;
+}
+
+body.y2k-mode .crt-glitch-line {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 20, 147, 0.08) 10%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 20, 147, 0.08) 90%,
+        transparent 100%) !important;
+}
+
+/* ============================================
+   DEV OVERLAY
+   ============================================ */
+body.y2k-mode #dev-overlay {
+    background: rgba(61, 15, 28, 0.95) !important;
+    border-color: rgba(255, 20, 147, 0.4) !important;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.2) !important;
+}
+
+body.y2k-mode .dev-header {
+    background: #4A1225 !important;
+    border-bottom-color: rgba(255, 20, 147, 0.27) !important;
+    color: #FF1493 !important;
+}
+
+body.y2k-mode .log-info {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .log-success {
+    color: #FF69B4 !important;
+}
+
+/* ============================================
+   SCROLLBARS
+   ============================================ */
+body.y2k-mode ::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body.y2k-mode ::-webkit-scrollbar-track {
+    background: #3D0F1C;
+}
+
+body.y2k-mode ::-webkit-scrollbar-thumb {
+    background: rgba(255, 20, 147, 0.27);
+}
+
+body.y2k-mode ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 20, 147, 0.53);
+}
+
+/* ============================================
+   INFO FOOTER TEXT
+   ============================================ */
+body.y2k-mode .info {
+    color: #C7819B !important;
+}
+
+body.y2k-mode .info a {
+    color: #FF69B4 !important;
+}
+
+/* ============================================
+   REDUCED SHADOWS OVERRIDE
+   ============================================ */
+body.y2k-mode.reduced-shadows #game-container {
+    box-shadow: 0 0 8px rgba(255, 20, 147, 0.2) !important;
+}
+
+body.y2k-mode.reduced-shadows #game-header {
+    box-shadow: 0 1px 6px rgba(255, 20, 147, 0.15) !important;
+}
+
+/* ============================================
+   VICTORY / DEFEAT SCREENS
+   ============================================ */
+body.y2k-mode .victory-overlay,
+body.y2k-mode .defeat-overlay {
+    background: rgba(61, 15, 28, 0.95) !important;
+}
+
+body.y2k-mode .victory-title {
+    color: #FF1493 !important;
+    text-shadow: 0 0 20px rgba(255, 20, 147, 0.7) !important;
+}
+
+body.y2k-mode .defeat-title {
+    color: #C71585 !important;
+    text-shadow: 0 0 20px rgba(199, 21, 133, 0.7) !important;
+}
+
+body.y2k-mode .screen-btn {
+    background: #4A1225 !important;
+    border-color: #FF1493 !important;
+    color: #FF69B4 !important;
+}
+
+/* ============================================
+   SCENARIO / CAMPAIGN LEVEL CARDS
+   ============================================ */
+body.y2k-mode .level-card {
+    background: #4A1225 !important;
+    border-color: rgba(255, 20, 147, 0.3) !important;
+}
+
+body.y2k-mode .level-card.unlocked {
+    border-color: #FF1493 !important;
+}
+
+body.y2k-mode .level-card .level-name {
+    color: #FF69B4 !important;
+}
+
+body.y2k-mode .level-card .level-desc {
+    color: #C7819B !important;
+}
