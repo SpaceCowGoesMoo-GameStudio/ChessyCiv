@@ -838,7 +838,6 @@ UIController.prototype.populateHelpCards = function() {
     addCard('help-crisis-cards', R.crisisText, true);
     addCard('help-crisis-cards', R.veteransCrisis, true);
     addCard('help-crisis-cards', R.disasterDistress, true);
-    addCard('help-crisis-cards', R.samhsa, true);
     addCard('help-crisis-cards', R.trevor, true);
     addCard('help-crisis-cards', R.transLifeline, true);
     addCard('help-crisis-cards', R.boystown, true);
@@ -900,12 +899,11 @@ UIController.prototype.populateHelpCards = function() {
 
     // ── All resources (organized with sub-headers) ───────────
     addHeader('help-all-cards', 'Crisis Support');
-    addCard('help-all-cards', R.lifeline988);
-    addCard('help-all-cards', R.crisisText);
-    addCard('help-all-cards', R.veteransCrisis);
-    addCard('help-all-cards', R.disasterDistress);
-    addCard('help-all-cards', R.samhsa);
-    addCard('help-all-cards', R.boystown);
+    addCard('help-all-cards', R.lifeline988, true);
+    addCard('help-all-cards', R.crisisText, true);
+    addCard('help-all-cards', R.veteransCrisis, true);
+    addCard('help-all-cards', R.disasterDistress, true);
+    addCard('help-all-cards', R.boystown, true);
 
     addHeader('help-all-cards', 'Safety & Protection');
     addCard('help-all-cards', R.dvHotline);
@@ -923,22 +921,23 @@ UIController.prototype.populateHelpCards = function() {
     addCard('help-all-cards', R.sage);
 
     addHeader('help-all-cards', 'Housing & Basic Needs');
-    addCard('help-all-cards', R.line211);
-    addCard('help-all-cards', R.findhelp);
-    addCard('help-all-cards', R.eldercare);
-    addCard('help-all-cards', R.runaway);
+    addCard('help-all-cards', R.line211, true);
+    addCard('help-all-cards', R.findhelp, true);
+    addCard('help-all-cards', R.eldercare, true);
+    addCard('help-all-cards', R.runaway, true);
 
     addHeader('help-all-cards', 'Financial & Legal');
     addCard('help-all-cards', R.womensLawFinancial);
     addCard('help-all-cards', R.oashFinancial);
-    addCard('help-all-cards', R.lsc);
-    addCard('help-all-cards', R.lawHelp);
+    addCard('help-all-cards', R.lsc, true);
+    addCard('help-all-cards', R.lawHelp, true);
     addCard('help-all-cards', R.womenslaw);
 
     addHeader('help-all-cards', 'Mental Health & Wellness');
-    addCard('help-all-cards', R.nami);
-    addCard('help-all-cards', R.maternalMH);
-    addCard('help-all-cards', R.neda);
+    addCard('help-all-cards', R.samhsa, true);
+    addCard('help-all-cards', R.nami, true);
+    addCard('help-all-cards', R.maternalMH, true);
+    addCard('help-all-cards', R.neda, true);
 
     // ── Center last card in groups with an odd number of cards ──
     const containerIds = [

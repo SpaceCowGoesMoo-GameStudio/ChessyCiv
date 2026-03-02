@@ -75,7 +75,7 @@ MenuScene.prototype.showMainMenu = async function() {
     const cx = 0;
 
     // Title
-    const title = this.add.text(cx, 0, 'CHESSYCIV v1.0', {
+    const title = this.add.text(cx, 0, 'CHESSYCIV v1.0.1', {
         fontSize: titleSize,
         fontFamily: 'VT323, monospace',
         color: COLORS.textPrimary,
