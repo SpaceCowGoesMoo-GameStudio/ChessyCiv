@@ -355,8 +355,8 @@ GameScene.prototype._showTutorialStep = function(step) {
     const messages = [
         'Tap your city to select it',
         'Tap production to build units and projects',
-        'Tap an option to produce it. The warrior production makes more warriors (see How to Play for more info). Tap \u00d7 to close',
-        'Move a warrior: tap it, then move within the green, or drag/tap outside to plan a path',
+        'Tap an option to produce it. The warrior production makes more warriors and science makes them (and your cities) stronger. Tap \u00d7 to close',
+        'Move a warrior: tap it, then tap within the green squares to move immediately, or drag/tap outside of them to plan a path',
         'Open view players to declare war, propose peace, or withdraw your offer. Both sides must propose for peace to take effect',
         'Open view relations to see the status between all alive players, shown by their color, with red meaning war and grey meaning peace',
         'Press next turn to allow your opponents to move and production to advance.'
@@ -1063,8 +1063,8 @@ GameScene.prototype._initHints = async function() {
         const showNextTurn = !this._hintNextTurnSeen;
 
         if (showWarrior || showAttack || showNextTurn) {
-            const msgWarrior  = 'Move a warrior: tap it, then move within the green, or drag/tap outside to plan a path';
-            const msgAttack   = 'To attack an enemy warrior or city, move your piece onto their tile. If they have a higher tech relative to you, it will take more hits to destroy them';
+            const msgWarrior  = 'Move a warrior: tap it, then tap within the green squares to move immediately, or drag/tap outside of them to plan a path';
+            const msgAttack   = 'To attack an enemy warrior or city, move your piece onto their tile. If they have a higher tech (science) relative to you, it will take more hits to destroy them';
             const msgNextTurn = 'Press next turn to end your turn. Opponents will move and production will advance';
             const durAttack   = Math.max(2500, msgAttack.split(/\s+/).length * 300);
 
