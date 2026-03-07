@@ -1383,7 +1383,7 @@ GameScene.prototype._checkSettlerHint = function() {
     if (this._isAnyHintActive()) return;
 
     const humanPlayers = this.engine.players.filter(function(p) { return !p.isAI; });
-    if (humanPlayers.length === 0) return;
+    if (humanPlayers.length !== 1) return;
 
     const humanIdx = this.engine.players.indexOf(humanPlayers[0]);
     const hasSettler = this.engine.pieces.some(function(p) {
