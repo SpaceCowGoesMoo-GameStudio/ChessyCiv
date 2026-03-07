@@ -273,6 +273,7 @@ var _crtPrerender = (function() {
         ctx.restore();
 
         cvs.toBlob(function(blob) {
+            if (!active) return;
             if (!blob) return;
             if (overlay._crtBlobURL) URL.revokeObjectURL(overlay._crtBlobURL);
             var url = URL.createObjectURL(blob);
@@ -355,6 +356,7 @@ var _crtPrerender = (function() {
         }
 
         cvs.toBlob(function(blob) {
+            if (!active || !jitterEl) return;
             if (!blob) return;
             if (jitterEl._blobURL) URL.revokeObjectURL(jitterEl._blobURL);
             var url = URL.createObjectURL(blob);
