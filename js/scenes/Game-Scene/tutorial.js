@@ -34,7 +34,8 @@
 // Campaign timed hints (auto-dismiss, no interaction needed):
 //   Level 1 – warrior movement hint → attack mechanic hint (after level-intro toast fades)
 //   Level 4 – production hint × 2 (after level-intro toast fades)
-//   On war  – attack mechanic hint (first time human player is at war; skirmish waits for tutorial)
+//   On war     – attack mechanic hint (first time human player is at war; skirmish waits for tutorial)
+//   On settler – settler hint (first time human player produces a settler; skirmish waits for tutorial)
 
 // ── Tutorial progress persistence (IndexedDB) ────────────────────────────────
 // Replaces localStorage for tracking which hints / tutorial the player has seen.
@@ -1027,6 +1028,7 @@ GameScene.prototype._tutorialRestorePieceOpacities = function() {
 //   civchess_has_seen_attack_hint      – attack mechanic hint (first time at war)
 //   civchess_has_seen_warrior_hint     – warrior movement hint (campaign lvl 1, or tutorial step 3)
 //   civchess_has_seen_production_hint  – production tips (tutorial steps 1–2, or campaign lvl 4)
+//   civchess_has_seen_settler_hint     – settler hint (first time human player has a settler)
 
 /**
  * Returns the ms delay needed after game-start for post-intro hints to appear without
@@ -1049,6 +1051,7 @@ GameScene.prototype._initHints = async function() {
     this._hintWarriorSeen    = TutorialProgress.getSeen('civchess_has_seen_warrior_hint');
     this._hintProductionSeen = TutorialProgress.getSeen('civchess_has_seen_production_hint');
     this._hintNextTurnSeen   = TutorialProgress.getSeen('civchess_has_seen_next_turn_hint');
+    this._hintSettlerSeen    = TutorialProgress.getSeen('civchess_has_seen_settler_hint');
 
     const hintsOn = typeof uiController === 'undefined' || uiController.settings.hints;
     if (!hintsOn) return;
@@ -1365,6 +1368,37 @@ GameScene.prototype._checkAttackHint = function() {
 
     this._hintAttackSeen = true;
     TutorialProgress.markSeen('civchess_has_seen_attack_hint');
+};
+
+/**
+ * Called at the start of each human turn.
+ * Shows the settler hint once, the first time the human player has a settler piece.
+ * In skirmish mode, waits until the tutorial has ended before showing.
+ */
+GameScene.prototype._checkSettlerHint = function() {
+    if (this._hintSettlerSeen === undefined) return; // _initHints not yet called
+    if (this._hintSettlerSeen) return;
+    if (typeof uiController === 'undefined' || !uiController.settings.hints) return;
+    if (this._tutorialActive) return; // wait for skirmish tutorial to finish
+    if (this._isAnyHintActive()) return;
+
+    const humanPlayers = this.engine.players.filter(function(p) { return !p.isAI; });
+    if (humanPlayers.length === 0) return;
+
+    const humanIdx = this.engine.players.indexOf(humanPlayers[0]);
+    const hasSettler = this.engine.pieces.some(function(p) {
+        return p.type === PIECE_TYPES.SETTLER && p.ownerId === humanIdx;
+    });
+    if (!hasSettler) return;
+
+    const msg = 'To settle a new city, select your settler piece and move it to the points on ' +
+                'the board that glow gold. Once there, tap the settler again while it has a move ' +
+                'left (while not gray), then press the green \u201cSETTLE\u201d button.';
+    const dur = Math.max(2500, msg.split(/\s+/).length * 300);
+    this._showTimedHint(msg, dur);
+
+    this._hintSettlerSeen = true;
+    TutorialProgress.markSeen('civchess_has_seen_settler_hint');
 };
 
 /**

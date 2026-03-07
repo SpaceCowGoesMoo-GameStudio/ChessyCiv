@@ -73,6 +73,9 @@ GameScene.prototype.checkAndExecuteAITurn = function() {
         // Show attack hint once, if the human player is now at war
         this._checkAttackHint();
 
+        // Show settler hint once, the first time the human player has a settler
+        this._checkSettlerHint();
+
         // Re-notify the human of any still-pending AI peace proposals every 8 rounds
         this._checkPeaceProposalReminder();
     }
