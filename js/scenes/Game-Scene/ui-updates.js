@@ -211,6 +211,7 @@ GameScene.prototype.updateSelectedInfo = function() {
                 this.mobileSettleBtn.bg.setAlpha(canSettle.valid ? 1 : 0.5);
                 this.mobileSettleBtn.label.setAlpha(canSettle.valid ? 1 : 0.5);
                 this.mobileSettleBtn.label.setColor(canSettle.valid ? COLORS.accentGreen : COLORS.textPrimary);
+                this.mobileSettleBtn.el.disabled = piece.hasMoved;
             }
         }
     } else {
@@ -223,6 +224,7 @@ GameScene.prototype.updateSelectedInfo = function() {
             this.settleBtn.bg.setAlpha(canSettle.valid ? 1 : 0.5);
             this.settleBtn.label.setAlpha(canSettle.valid ? 1 : 0.5);
             this.settleBtn.label.setColor(canSettle.valid ? COLORS.accentGreen : COLORS.textPrimary);
+            this.settleBtn.el.disabled = piece.hasMoved;
         } else {
             this.settleBtn.setVisible(false);
         }

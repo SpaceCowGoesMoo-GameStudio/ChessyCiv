@@ -8,6 +8,11 @@ GameEngine.prototype.canSettlerBuildCity = function(settler) {
         return { valid: false, reason: 'Not a settler' };
     }
 
+    // Cannot settle after having moved this turn
+    if (settler.hasMoved) {
+        return { valid: false, reason: 'Cannot settle after moving' };
+    }
+
     // Check if tile is owned by settler's owner (per game rules: "tile is owned")
     const tileOwner = this.tileOwnership[settler.row][settler.col];
     if (tileOwner !== settler.ownerId) {
