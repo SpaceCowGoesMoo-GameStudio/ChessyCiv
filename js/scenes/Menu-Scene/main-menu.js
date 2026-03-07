@@ -73,9 +73,30 @@ MenuScene.prototype.showMainMenu = async function() {
     // Center X for elements created via the factory (they use absolute pos
     // internally; we clear that in addToFlex, but the factory needs coords)
     const cx = 0;
+    const normalSubtitles = [
+        'A CONQUEST OF TILES',
+        'CONQUER THE SYSTEM',
+        'BUILD YOUR EMPIRE',
+        'GROW YOUR TERRITORY',
+        'OBTAIN DIGITAL SUPREMACY',
+        'A DIGITAL <a href="https://pixelsea.neocities.org/#se" target="_blank_">SEA OF PIXELS</a>'
+    ];
+
+    const rareSubtitles = [
+        'ALL YOUR CITIES ARE BELONG TO US',
+        '59 4F 55 52 20 4C 49 46 45 20 4D 41 54 54 45 52 53',
+        'ARE YOU WINNING SON?',
+        'E͙̺̯̗̿̅̑́R̭̥̗̔͛̀R̙̬̃̔0̢̛̖͍̱͌̒̄R̪̜̰̈́͆͝ 8̢̛̩͙̩̰̝̀͆͑̈́͐̌ͅ9̬͔̎̇̽͟:̻̠̣͍̮̍̌͆̓͝ ̜̼͉̥̣̔̿̏̓̈́S̲͍͐̂͝ͅY̠͐S̭̝͋̉T̨̉3M̛̪͖̈ ̢̬̝̦̦̌͛̅̾͞Į͍̦̱͎͖̟͇̅̉̑̍̆̽́͞N̨͎̩̩̦͒͐͐̓̕͝ͅS͕̥̰̺͉̐͛̋̇̄T̡͎̖̭̩̦͉̈͑̏̓̉͂͝Ą̩̯̤̰͇̌͛̓͒͗̕Ḃ̹̞̫̔͒͌ͅĮ̤̮̯̝͙̒͐̏͂̔͞L̥̱̬̣̥̭̓̄̒́̊̕I̛̛̯̼̯̳̞̗̙̪͌̂͛́̐͘T̥̙͖̉̐̿Y̧͉̹̙̟̗͊̆̍̍̇̿̂ͅ ̯̲̬͚̎̀͒̽D̗̥̻̜̤̟̆̐̒̍́͒̚ͅET̡̙͈͖͈̽̈̅́̈̿͢E̬̹͗̇Č̰͈̟́͢͞͡T̨̝̹̔̅̽È̞̪̝̍̒̓̇͢ͅD͖̉',
+        'CONNECT 1200 | Host Name: SCGMIS | Password: *******'
+    ];
+
+    // Random subtitle selection
+    const isRare = Math.random() < 0.10;
+    const targetList = isRare ? rareSubtitles : normalSubtitles;
+    const randomSubtitleText = targetList[Math.floor(Math.random() * targetList.length)];
 
     // Title
-    const title = this.add.text(cx, 0, 'CHESSYCIV v1.0.5', {
+    const title = this.add.text(cx, 0, 'CHESSYCIV v1.0.6', {
         fontSize: titleSize,
         fontFamily: 'VT323, monospace',
         color: COLORS.textPrimary,
@@ -85,7 +106,7 @@ MenuScene.prototype.showMainMenu = async function() {
     this.mainMenuElements.push(title);
 
     // Subtitle
-    const subtitle = this.add.text(cx, 0, 'A CONQUEST OF TILES', {
+    const subtitle = this.add.text(cx, 0, randomSubtitleText, {
         fontSize: subtitleSize,
         fontFamily: 'VT323, monospace',
         color: COLORS.textSecondary
@@ -94,6 +115,8 @@ MenuScene.prototype.showMainMenu = async function() {
     subtitle.el.style.textAlign = 'center';
     // Extra gap between subtitle and first button
     subtitle.el.style.marginBottom = mobile ? '6px' : '14px';
+    subtitle.el.innerHTML = randomSubtitleText;
+    subtitle.el.style.pointerEvents = 'auto';
     this.mainMenuElements.push(subtitle);
 
     // New Game button

@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="robots" content="index, follow">
     <title>ChessyCiv — Build Cities, Command Warriors, Conquer the System | Turn-Based Strategy Browser Game</title>
-    <meta name="description" content="ChessyCiv is a free turn-based strategy game where you found cities, produce warriors and settlers, research tech, and wage diplomatic war across 100 tiles. Warriors move to adjacent tiles, claiming enemy territory during war; cities take multiple warrior strikes to fall. Play a 7-level sci-fi campaign or free-for-all skirmish with up to 4 players. Free, no install, plays in any browser.">
+    <meta name="description" content="ChessyCiv is a free turn-based strategy game where you found cities, produce warriors and settlers, research tech, and wage war across 100 tiles. Warriors move to adjacent tiles, claiming enemy territory during war; cities take multiple warrior strikes to fall. Play a 7-level sci-fi campaign or free-for-all skirmish with up to 4 players. Free, no install, plays in any browser.">
     <meta name="keywords" content="free browser strategy game, turn-based strategy browser, city building strategy game, 4X strategy game browser, free online strategy game, sci-fi strategy game, hot seat multiplayer strategy, no download strategy game, HTML5 strategy game, indie strategy game, territory control strategy, tile-based strategy game">
     <meta name="author" content="SpaceCowGoesMoo Studio">
     <meta name="theme-color" content="#00d4ff">
@@ -34,10 +34,10 @@
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "name": "ChessyCiv",
-      "description": "Turn-based browser strategy game where you found cities, produce units, and fight for territorial control across 100 tiles. Command three unit types — Cities, Warriors, and Settlers. Warriors move to adjacent tiles and claim enemy territory during war; enemy warriors are eliminated on contact; cities absorb multiple hits before falling. Manage production, research technology, and negotiate war and peace to eliminate rivals. Features a 7-level sci-fi rebellion campaign, free-for-all skirmish with up to 4 players, three AI difficulty levels: Easy, Medium, and Hard, an achievement system, and offline save/load via IndexedDB.",
+      "description": "Turn-based browser strategy game where you found cities, produce units, and fight for territorial control across 100 tiles. Command three unit types - Cities, Warriors, and Settlers. Warriors move to adjacent tiles and claim enemy territory during war; enemy warriors are eliminated on contact; cities absorb multiple hits before falling. Manage production, research technology, and negotiate war and peace to eliminate rivals. Features a 7-level sci-fi rebellion campaign, free-for-all skirmish with up to 4 players, three AI difficulty levels: Easy, Medium, and Hard, an achievement system, and offline save/load via IndexedDB.",
       "url": "https://chessyciv.com/",
       "image": "https://chessyciv.com/pictures/og.jpeg",
-      "datePublished": "2025-03-02",
+      "datePublished": "2026-03-02",
       "author": {
         "@type": "Organization",
         "name": "SpaceCowGoesMoo Studio"
@@ -58,7 +58,7 @@
       },
       "featureList": [
         "7-level sci-fi campaign with narrative win/loss text",
-        "Free-for-all skirmish with 2–4 players",
+        "Free-for-all skirmish with 2-4 players",
         "Three AI difficulty levels: Easy, Medium, Hard",
         "Hot seat local multiplayer",
         "Three piece types: Cities, Warriors, Settlers",
@@ -83,8 +83,8 @@
     <link rel="canonical" href="https://chessyciv.com/">
     <link rel="icon" type="image/png" href="pictures/icon_32.png">
     <link rel="apple-touch-icon" href="pictures/icon_62.png">
-    <link rel="stylesheet" href="styles.css?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b">
-    <script src="js/hash-check.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <link rel="stylesheet" href="styles.css?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5">
+    <script src="js/hash-check.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
 </head>
 <body>
@@ -112,9 +112,9 @@
         <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Free Turn-Based Strategy Browser Game</h2>
         <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">7-Level Sci-Fi Campaign</h2>
         <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Free-for-All Skirmish with Up to 4 Players</h2>
-        <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">No Download Required — Plays in Any Browser</h2>
+        <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">No Download Required: Plays in Any Browser</h2>
         <div id="game-container"></div>
-        <p class="info">&copy; 2026 SpaceCowGoesMoo. Licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">AGPL 3.0</a>. <a href="https://github.com/SpaceCowGoesMoo-Studio/ChessyCiv" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+        <p class="info">&copy; 2026 SpaceCowGoesMoo. Licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">AGPL 3.0</a>. <a href="https://github.com/SpaceCowGoesMoo-GameStudio/ChessyCiv" target="_blank" rel="noopener noreferrer">Source Code</a></p>
         
         <!-- Share buttons -->
         <!-- These share buttons were made with https://codeshack.io/social-share-link-generator/  -->
@@ -157,102 +157,102 @@
       </div>
 
     <!-- Scene Manager & Utilities (must load before scenes) -->
-    <script src="js/SceneManager.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/time-dial.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/SceneManager.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/time-dial.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
 
     <!-- Game Scripts -->
-    <script src="js/SoundManager.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/constants.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/theme-config.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/GameHistory.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/SoundManager.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/constants.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/theme-config.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/GameHistory.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Game Engine Module -->
-    <script src="js/Game-Engine/GameEngine.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/setup.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/movement.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/combat.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/production.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/territory.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/diplomacy.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/settlers.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/turns.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/ai-support.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/persistence.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/pathfinding.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Game-Engine/ml-state-encoder.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/Game-Engine/GameEngine.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/setup.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/movement.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/combat.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/production.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/territory.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/diplomacy.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/settlers.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/turns.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/ai-support.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/persistence.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/pathfinding.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Game-Engine/ml-state-encoder.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Dev Controls Module -->
-    <script src="js/Dev-Controls/DevExport.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/DevGame.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/state.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/pieces.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/players.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/actions.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/ai-control.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/game-control.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/events.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/ml-bridge.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Dev-Controls/DevManager.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/Dev-Controls/DevExport.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/DevGame.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/state.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/pieces.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/players.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/actions.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/ai-control.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/game-control.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/events.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/ml-bridge.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Dev-Controls/DevManager.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- AI Module -->
-    <script src="js/AI/constants.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/CivChessAI.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/AIManager.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/analysis.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/tracking.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/goals.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/diplomacy.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/production.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/objectives.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/pathfinding.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/positioning.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/movement.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/AI/settlers.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/AI/constants.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/CivChessAI.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/AIManager.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/analysis.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/tracking.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/goals.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/diplomacy.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/production.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/objectives.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/pathfinding.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/positioning.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/movement.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/AI/settlers.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Loading Scene Module -->
-    <script src="js/scenes/Loading-Scene/LoadingScene.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Loading-Scene/progress-bar.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Loading-Scene/transitions.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/scenes/Loading-Scene/LoadingScene.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Loading-Scene/progress-bar.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Loading-Scene/transitions.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Menu Scene Module -->
-    <script src="js/scenes/Menu-Scene/MenuScene.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/main-menu.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/new-game-menu.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/new-game-animations.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/new-game.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/load-game.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/how-to-play.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/achievements.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Menu-Scene/scenario.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/scenes/Menu-Scene/MenuScene.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/main-menu.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/new-game-menu.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/new-game-animations.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/new-game.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/load-game.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/how-to-play.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/achievements.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Menu-Scene/scenario.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Game Scene Module -->
-    <script src="js/scenes/Game-Scene/GameSceneDOM.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/board.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/pieces.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/ui-panel.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/ui-popups.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/ui-updates.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/input.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/movement-queue.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/actions.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/animations.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/ai-turn.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/sound.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/screens.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/scenario-win.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/scenes/Game-Scene/tutorial.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/scenes/Game-Scene/GameSceneDOM.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/board.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/pieces.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/ui-panel.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/ui-popups.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/ui-updates.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/input.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/movement-queue.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/actions.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/animations.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/ai-turn.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/sound.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/screens.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/scenario-win.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/scenes/Game-Scene/tutorial.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- UI Controller Module -->
-    <script src="js/UI-Controller/UIController.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/settings.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/header.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/options-panel.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/help-panel.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/how-to-play-panel.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/achievements-panel.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/dev-mode.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/UI-Controller/scene-management.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/UI-Controller/UIController.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/settings.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/header.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/options-panel.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/help-panel.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/how-to-play-panel.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/achievements-panel.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/dev-mode.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/UI-Controller/scene-management.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <!-- Achievement System Module -->
-    <script src="js/Achievements/AchievementManager.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Achievements/achievement-persistence.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Achievements/achievement-checks.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Achievements/achievement-display.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Achievements/achievement-definitions.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/Achievements/achievement-integration.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
-    <script src="js/main.js?v=548b4bdd69f5343785dbfd5deeb15878c34c1df514c62e1b0fcda37b0ed4268b"></script>
+    <script src="js/Achievements/AchievementManager.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Achievements/achievement-persistence.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Achievements/achievement-checks.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Achievements/achievement-display.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Achievements/achievement-definitions.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/Achievements/achievement-integration.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
+    <script src="js/main.js?v=1eb87ae1471224347e0a275cea33d7bf5be7cacbc57ed61d3934b9bb86985ed5"></script>
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
