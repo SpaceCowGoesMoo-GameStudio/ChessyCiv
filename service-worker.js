@@ -1,6 +1,6 @@
 'use strict';
 
-const SW_VERSION = '61f3b4b1b29d7a04f997b38fe56d05cf04784f7447736ca339edb263937d3e2f';
+const SW_VERSION = 'f3ef909d6a28e004d8ea8726d5cf57b63c75c63bcea275a52945dfe82e57b6c1';
 const CACHE_NAME = 'civchess-' + SW_VERSION;
 
 // All assets loaded by index.html, plus essential data files.
