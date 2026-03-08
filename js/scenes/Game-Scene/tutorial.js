@@ -1024,11 +1024,12 @@ GameScene.prototype._tutorialRestorePieceOpacities = function() {
 // One-shot timed hints tracked in IndexedDB (civchess_tutorial_v1 via TutorialProgress).
 //
 // Tracked booleans (IndexedDB keys):
-//   civchess_has_seen_tutorial         – full skirmish tutorial
-//   civchess_has_seen_attack_hint      – attack mechanic hint (first time at war)
-//   civchess_has_seen_warrior_hint     – warrior movement hint (campaign lvl 1, or tutorial step 3)
-//   civchess_has_seen_production_hint  – production tips (tutorial steps 1–2, or campaign lvl 4)
-//   civchess_has_seen_settler_hint     – settler hint (first time human player has a settler)
+//   civchess_has_seen_tutorial              – full skirmish tutorial
+//   civchess_has_seen_attack_hint           – attack mechanic hint (first time at war)
+//   civchess_has_seen_warrior_hint          – warrior movement hint (skirmish tutorial step 3)
+//   civchess_has_seen_campaign_l1_warrior   – warrior movement hint shown on campaign level 1
+//   civchess_has_seen_production_hint       – production tips (tutorial steps 1–2, or campaign lvl 4)
+//   civchess_has_seen_settler_hint          – settler hint (first time human player has a settler)
 
 /**
  * Returns the ms delay needed after game-start for post-intro hints to appear without
@@ -1061,7 +1062,9 @@ GameScene.prototype._initHints = async function() {
     // ── Campaign level 1: warrior movement (persistent) → warrior attack → next turn ──
     // (manifest 0-based → level 1 = index 0)
     if (this.scenarioIndex === 0) {
-        const showWarrior  = !this._hintWarriorSeen;
+        // Use a campaign-specific warrior flag so skirmish warrior movement doesn't
+        // suppress the warrior tutorial on campaign level 1.
+        const showWarrior  = !TutorialProgress.getSeen('civchess_has_seen_campaign_l1_warrior');
         const showAttack   = !this._hintAttackSeen;
         const showNextTurn = !this._hintNextTurnSeen;
 
@@ -1129,7 +1132,14 @@ GameScene.prototype._initHints = async function() {
                 });
             } : nextTurnCb;
 
-            scene.delayedCall(scene._introFadeDelay(), function() {
+            // Retry until no other hint is active (level intro may still be fading).
+            // Without retry, _showCampaignWarriorHint/_showTimedHint would silently
+            // drop the hint and never call onDone, breaking the whole chain.
+            scene.delayedCall(scene._introFadeDelay(), function tryShowL1Hints() {
+                if (scene._isAnyHintActive()) {
+                    scene.delayedCall(500, tryShowL1Hints);
+                    return;
+                }
                 if (showWarrior) {
                     // Persistent hint — dismissed when the human player moves a warrior
                     scene._showCampaignWarriorHint(msgWarrior, attackCb || null);
@@ -1144,6 +1154,7 @@ GameScene.prototype._initHints = async function() {
             if (showWarrior) {
                 this._hintWarriorSeen = true;
                 TutorialProgress.markSeen('civchess_has_seen_warrior_hint');
+                TutorialProgress.markSeen('civchess_has_seen_campaign_l1_warrior');
             }
             if (showAttack) {
                 this._hintAttackSeen = true;
@@ -1159,7 +1170,11 @@ GameScene.prototype._initHints = async function() {
     // ── Campaign level 4: production hints ────────────────────────────────────
     // (manifest 0-based → level 4 = index 3)
     if (this.scenarioIndex === 3 && !this._hintProductionSeen) {
-        scene.delayedCall(scene._introFadeDelay(), function() {
+        scene.delayedCall(scene._introFadeDelay(), function tryShowProdHint() {
+            if (scene._isAnyHintActive()) {
+                scene.delayedCall(500, tryShowProdHint);
+                return;
+            }
             scene._showCampaignProductionHint();
         });
 

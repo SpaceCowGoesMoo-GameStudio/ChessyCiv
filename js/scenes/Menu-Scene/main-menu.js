@@ -96,7 +96,7 @@ MenuScene.prototype.showMainMenu = async function() {
     const randomSubtitleText = targetList[Math.floor(Math.random() * targetList.length)];
 
     // Title
-    const title = this.add.text(cx, 0, 'CHESSYCIV v1.1.2', {
+    const title = this.add.text(cx, 0, 'CHESSYCIV v1.1.3', {
         fontSize: titleSize,
         fontFamily: 'VT323, monospace',
         color: COLORS.textPrimary,
